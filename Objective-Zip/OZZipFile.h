@@ -62,7 +62,7 @@
 /**
  @brief File name of the zip file.
  */
-@property (nonatomic, readonly, nonnull) NSString *fileName;
+@property (nonatomic, readonly) NSString *fileName;
 
 /**
  @brief Access mode specified during opening. Can be:<ul>

@@ -55,7 +55,7 @@
  @throws OZZipException If the file can't be opened due to an erroror if the
  access mode is invalid.
  */
-- (nonnull instancetype) initWithFileName:(nonnull NSString *)fileName mode:(OZZipFileMode)mode;
+- (instancetype) initWithFileName:(NSString *)fileName mode:(OZZipFileMode)mode;
 
 /**
  @brief Creates a OZZipFile with the specified zip file name, access mode and
@@ -75,7 +75,7 @@
  @throws OZZipException If the file can't be opened due to an error or if the
  access mode is invalid.
  */
-- (nonnull instancetype) initWithFileName:(nonnull NSString *)fileName mode:(OZZipFileMode)mode legacy32BitMode:(BOOL)legacy32BitMode;
+- (instancetype) initWithFileName:(NSString *)fileName mode:(OZZipFileMode)mode legacy32BitMode:(BOOL)legacy32BitMode;
 
 
 #pragma mark -
@@ -107,7 +107,7 @@
  @throws OZZipException If the file stream can't be created due to an error or
  if the zip file has been opened in unzip mode.
  */
-- (nonnull OZZipWriteStream *) writeFileInZipWithName:(nonnull NSString *)fileNameInZip compressionLevel:(OZZipCompressionLevel)compressionLevel;
+- (OZZipWriteStream *) writeFileInZipWithName:(NSString *)fileNameInZip compressionLevel:(OZZipCompressionLevel)compressionLevel;
 
 /**
  @brief Creates a new OZZipWriteStream for adding a new file in the zip file
@@ -136,7 +136,7 @@
  @throws OZZipException If the file stream can't be created due to an error or
  if the zip file has been opened in unzip mode.
  */
-- (nonnull OZZipWriteStream *) writeFileInZipWithName:(nonnull NSString *)fileNameInZip fileDate:(nonnull NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel;
+- (OZZipWriteStream *) writeFileInZipWithName:(NSString *)fileNameInZip fileDate:(NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel;
 
 /**
  @brief Creates a new OZZipWriteStream for adding a new encrypted file in the
@@ -167,7 +167,7 @@
  @throws OZZipException If the file stream can't be created due to an error or
  if the zip file has been opened in unzip mode.
  */
-- (nonnull OZZipWriteStream *) writeFileInZipWithName:(nonnull NSString *)fileNameInZip fileDate:(nonnull NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel password:(nonnull NSString *)password crc32:(NSUInteger)crc32;
+- (OZZipWriteStream *) writeFileInZipWithName:(NSString *)fileNameInZip fileDate:(NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel password:(NSString *)password crc32:(NSUInteger)crc32;
 
 
 #pragma mark -
@@ -204,7 +204,7 @@
  @throws OZZipException If the file can't be located due to an error or if the
  zip file has been opened with a mode other than Unzip.
  */
-- (BOOL) locateFileInZip:(nonnull NSString *)fileNameInZip;
+- (BOOL) locateFileInZip:(NSString *)fileNameInZip;
 
 /**
  @brief Returns the number of files contained in the zip file.
@@ -222,7 +222,7 @@
  @throws OZZipException If the list of file info could not be obtained due to
  an error or if the zip file has been opened with a mode other than Unzip.
  */
-- (nonnull NSArray *) listFileInZipInfos;
+- (NSArray *) listFileInZipInfos;
 
 /**
  @brief Returns an OZFileInZipInfo with the information on the currently
@@ -232,7 +232,7 @@
  @throws OZZipException If the info info could not be obtained due to an error
  or if the zip file has been opened with a mode other than Unzip.
  */
-- (nonnull OZFileInZipInfo *) getCurrentFileInZipInfo;
+- (OZFileInZipInfo *) getCurrentFileInZipInfo;
 
 
 #pragma mark -
@@ -249,7 +249,7 @@
  @throws OZZipException If the read stream could not be created due to an error
  or if the zip file has been opened with a mode other than Unzip.
  */
-- (nonnull OZZipReadStream *) readCurrentFileInZip;
+- (OZZipReadStream *) readCurrentFileInZip;
 
 /**
  @brief Creates a OZZipReadStream for reading the currently selected file in
@@ -263,7 +263,7 @@
  @throws OZZipException If the read stream could not be created due to an error
  or if the zip file has been opened with a mode other than Unzip.
  */
-- (nonnull OZZipReadStream *) readCurrentFileInZipWithPassword:(nonnull NSString *)password;
+- (OZZipReadStream *) readCurrentFileInZipWithPassword:(NSString *)password;
 
 
 #pragma mark -

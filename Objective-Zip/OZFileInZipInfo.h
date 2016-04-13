@@ -52,7 +52,7 @@
  subdirectory names are prepended to the file name, e.g. 
  "docs/html/index.html".</p>
  */
-@property (nonatomic, readonly, nonnull) NSString *name;
+@property (nonatomic, readonly) NSString *name;
 
 /**
  @brief Length in bytes of the uncompressed file.
@@ -83,7 +83,7 @@
 /**
  @brief Date/time the of file.
  */
-@property (nonatomic, readonly, nonnull) NSDate *date;
+@property (nonatomic, readonly) NSDate *date;
 
 /**
  @brief CRC32 of the file.

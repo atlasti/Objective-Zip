@@ -47,7 +47,7 @@
  @param data The data to be compressed and written.
  @throws OZZipException If the data could not be written due to an error.
  */
-- (void) writeData:(nonnull NSData *)data;
+- (void) writeData:(NSData *)data;
 
 /**
  @brief Closes the write stream.

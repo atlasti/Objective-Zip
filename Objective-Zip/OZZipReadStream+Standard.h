@@ -50,7 +50,7 @@
  interface.
  @throws OZZipException If the data could not be read due to an error.
  */
-- (NSUInteger) readDataWithBuffer:(nonnull NSMutableData *)buffer;
+- (NSUInteger) readDataWithBuffer:(NSMutableData *)buffer;
 
 /**
  @brief Closes the read steam.

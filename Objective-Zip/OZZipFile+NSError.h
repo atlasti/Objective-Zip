@@ -67,7 +67,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  can't be opened.
  @throws OZZipException If the access mode is invalid.
  */
-- (nullable instancetype) initWithFileName:(nonnull NSString *)fileName mode:(OZZipFileMode)mode error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (instancetype) initWithFileName:(NSString *)fileName mode:(OZZipFileMode)mode error:(NSError **)error;
 
 /**
  @brief Creates a OZZipFile with the specified zip file name, access mode and
@@ -88,7 +88,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  can't be opened.
  @throws OZZipException If the access mode is invalid.
  */
-- (nullable instancetype) initWithFileName:(nonnull NSString *)fileName mode:(OZZipFileMode)mode legacy32BitMode:(BOOL)legacy32BitMode error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (instancetype) initWithFileName:(NSString *)fileName mode:(OZZipFileMode)mode legacy32BitMode:(BOOL)legacy32BitMode error:(NSError **)error;
 
 
 #pragma mark -
@@ -121,7 +121,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  file content, or <code>nil</code> if an error occurs.
  @throws OZZipException If the zip file has been opened in unzip mode.
  */
-- (nullable OZZipWriteStream *) writeFileInZipWithName:(nonnull NSString *)fileNameInZip compressionLevel:(OZZipCompressionLevel)compressionLevel error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (OZZipWriteStream *) writeFileInZipWithName:(NSString *)fileNameInZip compressionLevel:(OZZipCompressionLevel)compressionLevel error:(NSError **)error;
 
 /**
  @brief Creates a new OZZipWriteStream for adding a new file in the zip file
@@ -151,7 +151,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  file content, or <code>nil</code> if an error occurs.
  @throws OZZipException If the zip file has been opened in unzip mode.
  */
-- (nullable OZZipWriteStream *) writeFileInZipWithName:(nonnull NSString *)fileNameInZip fileDate:(nonnull NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (OZZipWriteStream *) writeFileInZipWithName:(NSString *)fileNameInZip fileDate:(NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel error:(NSError **)error;
 
 /**
  @brief Creates a new OZZipWriteStream for adding a new encrypted file in the
@@ -183,7 +183,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  file content, or <code>nil</code> if an error occurs.
  @throws OZZipException If the zip file has been opened in unzip mode.
  */
-- (nullable OZZipWriteStream *) writeFileInZipWithName:(nonnull NSString *)fileNameInZip fileDate:(nonnull NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel password:(nonnull NSString *)password crc32:(NSUInteger)crc32 error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (OZZipWriteStream *) writeFileInZipWithName:(NSString *)fileNameInZip fileDate:(NSDate *)fileDate compressionLevel:(OZZipCompressionLevel)compressionLevel password:(NSString *)password crc32:(NSUInteger)crc32 error:(NSError **)error;
 
 
 #pragma mark -
@@ -200,7 +200,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other than
  Unzip.
  */
-- (BOOL) goToFirstFileInZipWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (BOOL) goToFirstFileInZipWithError:(NSError **)error;
 
 /**
  @brief Moves selection to the next file contained in the zip file.
@@ -214,7 +214,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other than
  Unzip.
  */
-- (BOOL) goToNextFileInZipWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (BOOL) goToNextFileInZipWithError:(NSError **)error;
 
 /**
  @brief Locates a file by name in the zip file and selects it.
@@ -231,7 +231,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other than
  Unzip.
  */
-- (NSInteger) __attribute__((swift_error(zero_result))) locateFileInZip:(nonnull NSString *)fileNameInZip error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (NSInteger) __attribute__((swift_error(zero_result))) locateFileInZip:(NSString *)fileNameInZip error:(NSError **)error;
 
 /**
  @brief Returns the number of files contained in the zip file.
@@ -242,7 +242,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other
  than Unzip.
  */
-- (NSUInteger) __attribute__((swift_error(zero_result))) numFilesInZipWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (NSUInteger) __attribute__((swift_error(zero_result))) numFilesInZipWithError:(NSError **)error;
 
 /**
  @brief Returns a list of OZFileInZipInfo with the information on all the files
@@ -255,7 +255,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other than
  Unzip.
  */
-- (nullable NSArray *) listFileInZipInfosWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (NSArray *) listFileInZipInfosWithError:(NSError **)error;
 
 /**
  @brief Returns an OZFileInZipInfo with the information on the currently
@@ -268,7 +268,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other than
  Unzip.
  */
-- (nullable OZFileInZipInfo *) getCurrentFileInZipInfoWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (OZFileInZipInfo *) getCurrentFileInZipInfoWithError:(NSError **)error;
 
 
 #pragma mark -
@@ -288,7 +288,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other than
  Unzip.
  */
-- (nullable OZZipReadStream *) readCurrentFileInZipWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (OZZipReadStream *) readCurrentFileInZipWithError:(NSError **)error;
 
 /**
  @brief Creates a OZZipReadStream for reading the currently selected file in
@@ -305,7 +305,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @throws OZZipException If the zip file has been opened with a mode other than
  Unzip.
  */
-- (nullable OZZipReadStream *) readCurrentFileInZipWithPassword:(nonnull NSString *)password error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (OZZipReadStream *) readCurrentFileInZipWithPassword:(NSString *)password error:(NSError **)error;
 
 
 #pragma mark -
@@ -323,7 +323,7 @@ static const NSInteger OZLocateFileResultFound= 1;
  @return <code>YES</code> if the zip file has been closed, <code>NO</code> if
  the zip file could not be closed due to an error.
  */
-- (BOOL) closeWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (BOOL) closeWithError:(NSError **)error;
 
 
 @end

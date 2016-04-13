@@ -59,11 +59,11 @@
 #pragma mark -
 #pragma mark Initialization
 
-+ (nonnull OZZipException *) zipExceptionWithReason:(nonnull NSString *)format, ...;
-+ (nonnull OZZipException *) zipExceptionWithError:(NSInteger)error reason:(nonnull NSString *)format, ...;
++ (OZZipException *) zipExceptionWithReason:(NSString *)format, ...;
++ (OZZipException *) zipExceptionWithError:(NSInteger)error reason:(NSString *)format, ...;
 
-- (nonnull instancetype) initWithReason:(nonnull NSString *)reason;
-- (nonnull instancetype) initWithError:(NSInteger)error reason:(nonnull NSString *)reason;
+- (instancetype) initWithReason:(NSString *)reason;
+- (instancetype) initWithError:(NSInteger)error reason:(NSString *)reason;
 
 
 @end

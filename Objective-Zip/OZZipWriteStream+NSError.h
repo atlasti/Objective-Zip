@@ -50,7 +50,7 @@
  @return <code>YES</code> if data has been written, <code>NO</code> if
  data could not be written due to an error.
  */
-- (BOOL) writeData:(nonnull NSData *)data error:(NSError * __autoreleasing __nullable * __nullable)error;
+- (BOOL) writeData:(NSData *)data error:(NSError **)error;
 
 /**
  @brief Closes the write stream.
@@ -63,7 +63,7 @@
  @return <code>YES</code> if the stream has been closed, <code>NO</code> if
  the stream could not be closed due to an error.
  */
-- (BOOL) finishedWritingWithError:(NSError * __autoreleasing __nullable * __nullable)error;
+- (BOOL) finishedWritingWithError:(NSError **)error;
 
 
 @end
