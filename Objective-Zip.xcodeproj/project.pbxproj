@@ -870,6 +870,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Objective-Zip_OS_X";
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -908,6 +909,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "Objective-Zip_OS_X";
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
